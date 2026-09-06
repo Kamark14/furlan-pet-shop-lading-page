@@ -1,0 +1,10 @@
+const header=document.getElementById('header'), hamburger=document.getElementById('hamburger'), nav=document.getElementById('nav');
+hamburger.addEventListener('click',()=>{const open=nav.classList.toggle('open');hamburger.setAttribute('aria-expanded',open)});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');hamburger.setAttribute('aria-expanded','false')}));
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>20),{passive:true});
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+const lightbox=document.getElementById('lightbox'), image=document.getElementById('lightboxImage');
+document.querySelectorAll('.gallery-item').forEach(item=>item.addEventListener('click',()=>{image.src=item.dataset.img;image.alt=item.querySelector('img')?.alt||'';lightbox.setAttribute('aria-hidden','false')}));
+const close=()=>{lightbox.setAttribute('aria-hidden','true');image.src=''};document.getElementById('closeLightbox').addEventListener('click',close);lightbox.addEventListener('click',e=>{if(e.target===lightbox)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+document.getElementById('year').textContent=new Date().getFullYear();
