@@ -16,6 +16,3 @@ Landing page responsiva para demonstração comercial do Furlan Pet Shop, Piritu
 
 ## Responsividade
 Desktop, tablet e celular; menu mobile e CTA fixo de WhatsApp no celular.
-
-## Importante
-Antes da publicação oficial, confirmar com o estabelecimento os links exatos das redes sociais, horários, catálogo e demais dados.
